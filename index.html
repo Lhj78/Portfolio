@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laxmi Ahirwar – Data Science, Machine Learning & Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1F3EF;--surface:#FFFFFF;--ink:#102A26;--muted:#4D635D;--line:#CFD8D3;
+  --teal:#0F766E;--gold:#B7791F;--gold-bg:#FBEFD2;--teal-bg:#DDEFEA;
+  --display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;
+  --body:'Newsreader',Georgia,'Times New Roman',serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1A18;--surface:#15262A;--ink:#E7EFEC;--muted:#9DB3AC;--line:#2A3F3B;
+  --teal:#4FD1C0;--gold:#F0B84A;--gold-bg:#3A2E12;--teal-bg:#163A36;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1A18;--surface:#15262A;--ink:#E7EFEC;--muted:#9DB3AC;--line:#2A3F3B;--teal:#4FD1C0;--gold:#F0B84A;--gold-bg:#3A2E12;--teal-bg:#163A36;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.65}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;letter-spacing:-.02em}
+nav{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:20px 0;font-family:var(--display);font-size:.95rem;font-weight:500}
+nav .links{display:flex;gap:20px;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none}
+nav a:hover{color:var(--teal)}
+nav strong{font-weight:800}
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:48px 0 72px}
+.hero h1{font-size:clamp(3rem,8vw,5.6rem);font-weight:800}
+.hero .role{font-family:var(--display);font-weight:500;font-size:1.25rem;margin:18px 0 12px;color:var(--teal)}
+.hero p{max-width:34em;color:var(--muted);margin:0 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-family:var(--display);font-weight:700;font-size:1rem;padding:12px 22px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);color:var(--ink)}
+.btn.fill{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:#102A26}
+.roc{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px}
+.roc svg{width:100%;height:auto;display:block}
+.roc .axis{stroke:var(--muted);stroke-width:1.5;fill:none}
+.roc .chance{stroke:var(--line);stroke-width:2;stroke-dasharray:6 6;fill:none}
+.roc .curve{stroke:var(--teal);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:520;stroke-dashoffset:520;animation:draw 2.2s .3s ease-out forwards}
+.roc .area{fill:var(--teal-bg);opacity:0;animation:fade 1s 2s forwards}
+.roc text{font-family:var(--display);fill:var(--muted);font-size:11px}
+.roc .big{font-size:26px;font-weight:800;fill:var(--ink)}
+.roc figcaption{font-size:.95rem;color:var(--muted);margin-top:10px}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.roc .curve{animation:none;stroke-dashoffset:0}.roc .area{animation:none;opacity:1}html{scroll-behavior:auto}}
+/* sections */
+section{padding:64px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:28px}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.about p{margin:0 0 14px}
+.facts{display:grid;gap:12px;align-content:start}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.fact b{font-family:var(--display);display:block;font-size:1.5rem;color:var(--teal)}
+.fact span{color:var(--muted);font-size:.98rem}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.skill h3{font-size:1.1rem;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.chips li{font-family:var(--display);font-weight:500;font-size:.9rem;padding:5px 12px;border-radius:999px;background:var(--teal-bg);color:var(--ink)}
+.skill.ai .chips li{background:var(--gold-bg)}
+/* timeline */
+.tl{position:relative;margin:0;padding:0 0 0 28px;list-style:none;border-left:3px solid var(--teal)}
+.tl>li{position:relative;margin-bottom:36px}
+.tl>li::before{content:"";position:absolute;left:-38px;top:8px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--gold)}
+.tl h3{font-size:1.4rem}
+.tl .org{font-family:var(--display);font-weight:500;color:var(--teal);margin:2px 0 10px}
+.tl ul{margin:0;padding-left:20px}
+.tl li li{margin-bottom:6px}
+/* projects */
+.feature{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:30px;margin-bottom:24px}
+.feature h3{font-size:1.65rem;margin-bottom:4px}
+.feature .tag{font-family:var(--display);font-weight:500;color:var(--teal);margin:0 0 14px}
+.feature .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px}
+.feature h4{font-family:var(--display);font-size:1rem;margin:0 0 6px}
+.feature ul{margin:0;padding-left:20px}
+.feature li{margin-bottom:6px}
+.stat{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.stat span{font-family:var(--display);font-weight:700;background:var(--gold-bg);padding:6px 14px;border-radius:8px}
+.minis{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.mini{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--surface)}
+.mini h3{font-size:1.1rem;margin-bottom:6px}
+.mini p{margin:0;font-size:1rem;color:var(--muted)}
+/* credentials */
+.creds{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px 40px;padding:0;margin:0;list-style:none}
+.creds li{padding:12px 0;border-bottom:1px solid var(--line)}
+.creds b{font-family:var(--display);font-weight:700;display:block}
+.creds span{color:var(--muted);font-size:1rem}
+.edu{font-size:1.25rem}
+.edu b{font-family:var(--display)}
+.contact a{font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,3vw,1.8rem);display:block;margin-bottom:8px;overflow-wrap:anywhere}
+footer{padding:28px 0 40px;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
+@media (max-width:760px){.hero,.about,.feature .cols{grid-template-columns:1fr}.hero{padding-top:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Main">
+  <strong>Laxmi Ahirwar</strong>
+  <div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#credentials">Credentials</a><a href="#contact">Contact</a></div>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Laxmi Ahirwar</h1>
+    <div class="role">Data scientist and machine learning engineer who also builds full-stack apps</div>
+    <p>I build predictive models and the software around them, from healthcare risk scoring for rural clinics to role-based government service platforms.</p>
+    <div class="btns"><a class="btn fill" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+  <figure class="roc" style="margin:0">
+    <svg viewBox="0 0 320 300" role="img" aria-label="ROC curve reaching an AUC of 0.976">
+      <path class="area" d="M30 260 C 34 90, 70 40, 290 28 L290 260 Z"/>
+      <path class="chance" d="M30 260 L290 28"/>
+      <path class="axis" d="M30 20 V260 H300"/>
+      <path class="curve" d="M30 260 C 34 90, 70 40, 290 28"/>
+      <text x="160" y="284" text-anchor="middle">False positive rate</text>
+      <text transform="translate(12 140) rotate(-90)" text-anchor="middle">True positive rate</text>
+      <text class="big" x="150" y="210">0.976</text>
+      <text x="150" y="226">AUC-ROC</text>
+    </svg>
+    <figcaption>Best model result on the Prenatal Nutrition AI project.</figcaption>
+  </figure>
+</header>
+</div>
+
+<main>
+<section id="about"><div class="wrap">
+  <h2>About me</h2>
+  <div class="about">
+    <div>
+      <p>I’m a B.Tech student in Computer Science Engineering (Data Science &amp; AI) at Apeejay Stya University, graduating in 2027. My work sits where machine learning meets real products: I train and explain the models, then ship them behind clean APIs and usable interfaces.</p>
+      <p>My strongest projects serve people with limited resources, such as rural healthcare workers who need a fast, explainable nutrition assessment, and government offices that need reliable, permission-aware service delivery.</p>
+      <p>I have completed two internships, at the Delhi Secretariat and at NIT Delhi, and I debug problems across the whole stack, including databases, authentication and deployment.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>2</b><span>internships: Delhi Secretariat and NIT Delhi</span></div>
+      <div class="fact"><b>0.976</b><span>AUC-ROC on the prenatal risk model</span></div>
+      <div class="fact"><b>7 roles</b><span>in the permission hierarchy of the AAS platform</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Technical skills</h2>
+  <div class="skills">
+    <div class="skill"><h3>Programming languages</h3><ul class="chips"><li>Python</li><li>R</li><li>SQL</li><li>Java</li><li>C</li><li>C++</li></ul></div>
+    <div class="skill"><h3>Machine learning and AI</h3><ul class="chips"><li>Scikit-learn</li><li>XGBoost</li><li>LightGBM</li><li>PyTorch</li><li>SHAP</li><li>Deep learning</li><li>NLP</li><li>OCR</li></ul></div>
+    <div class="skill"><h3>Data analytics and visualization</h3><ul class="chips"><li>Power BI</li><li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>Data analysis</li></ul></div>
+    <div class="skill"><h3>Web scraping and automation</h3><ul class="chips"><li>Selenium</li><li>BeautifulSoup</li><li>API integration</li><li>JSON parsing</li></ul></div>
+    <div class="skill"><h3>Web development</h3><ul class="chips"><li>Django REST Framework</li><li>React</li><li>JWT authentication</li><li>REST APIs</li><li>PostgreSQL</li></ul></div>
+    <div class="skill"><h3>Tools and platforms</h3><ul class="chips"><li>Git</li><li>GitHub</li><li>Jupyter Notebook</li><li>Google Colab</li><li>VS Code</li><li>PyCharm</li><li>Firebase Studio</li></ul></div>
+    <div class="skill ai"><h3>AI tools I work with</h3><ul class="chips"><li>ChatGPT</li><li>Google Gemini</li><li>GitHub Copilot</li><li>Claude</li><li>Perplexity AI</li><li>Replit</li><li>Emergent</li></ul></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2>Experience</h2>
+  <ol class="tl">
+    <li>
+      <h3>AI/ML and Software Developer Intern</h3>
+      <div class="org">Delhi Secretariat, 2 months</div>
+      <ul>
+        <li>Developed REST APIs with Django REST Framework and React-based interfaces for a full-stack web application.</li>
+        <li>Built and evaluated machine learning models in Python with Scikit-learn and XGBoost, covering preprocessing, feature engineering and performance evaluation.</li>
+        <li>Debugged and resolved backend, database and integration issues across the stack.</li>
+      </ul>
+    </li>
+    <li>
+      <h3>Machine Learning and Data Science Intern</h3>
+      <div class="org">NIT Delhi</div>
+      <ul>
+        <li>Developed a healthcare analytics platform with Python, Streamlit, Scikit-learn and XGBoost for obesity classification and disease risk prediction.</li>
+        <li>Built machine learning pipelines for preprocessing, feature engineering, model training and evaluation.</li>
+        <li>Implemented BMI monitoring, trend analysis and personalized health recommendations using Excel and Pickle-based data tracking.</li>
+        <li>Integrated the Google Maps API for hospital location services and automated PDF report generation.</li>
+        <li>Delivered insights through interactive dashboards and predictive analytics to improve usability.</li>
+      </ul>
+    </li>
+  </ol>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+
+  <article class="feature">
+    <h3>Prenatal Nutrition AI</h3>
+    <p class="tag">Machine learning, computer vision, Streamlit</p>
+    <p>A multimodal fetal nutrition assessment system for rural Indian healthcare workers. It classifies nutrition status as Normal, Mild, Moderate or Severe, gives a 0–100 risk score and suggests referral advice.</p>
+    <div class="cols">
+      <div><h4>What I built</h4><ul>
+        <li>Trained and benchmarked Gradient Boosting, XGBoost, Random Forest, LightGBM, SVM and MLP models on maternal clinical and dietary data.</li>
+        <li>Used CTG, NHANES, NFHS-5 and FAO/WHO GIFT India datasets, with JSON-based explainability.</li>
+        <li>Fine-tuned a ResNet-50 CNN for fetal head-circumference regression on 999 HC18 ultrasound images.</li></ul></div>
+      <div><h4>How it comes together</h4><ul>
+        <li>Fused the image model with the tabular model into one assessment.</li>
+        <li>Delivered INTERGROWTH-21st growth-percentile charts and recommendations.</li>
+        <li>Packaged everything in a Streamlit web app that healthcare workers can use directly.</li></ul></div>
+    </div>
+    <div class="stat"><span>AUC-ROC 0.976</span><span>6 model families compared</span><span>999 ultrasound images</span></div>
+  </article>
+
+  <article class="feature">
+    <h3>AAS: Auto Appeal System</h3>
+    <p class="tag">Django REST Framework, React, role-based access control</p>
+    <p>A full-stack, role-based government service-delivery platform with a seven-role permission hierarchy: Super Admin, Commission, Department Admin, Designated Officer, Link DO, Staff and CGRA.</p>
+    <div class="cols">
+      <div><h4>Access and reliability</h4><ul>
+        <li>Implemented JSON-based authentication and department- and service-scoped access control.</li>
+        <li>Designed a mandatory dual-officer backup workflow so a service is never left without an officer.</li></ul></div>
+      <div><h4>APIs and workflows</h4><ul>
+        <li>Designed REST APIs for officer lifecycle management: create, update, enable/disable and re-link.</li>
+        <li>Built an auto-escalation flow that routes applications that breach their service-level deadline to a grievance authority.</li>
+        <li>Debugged production issues across the database schema, authentication and deployment.</li></ul></div>
+    </div>
+    <div class="stat"><span>7 user roles</span><span>Dual-officer backup</span><span>Auto-escalation</span></div>
+  </article>
+
+  <div class="minis">
+    <div class="mini"><h3>Obesity and Diabetes Prediction System</h3><p>ML models for obesity classification, diabetes risk prediction, health analytics and personalized recommendations.</p></div>
+    <div class="mini"><h3>Student Performance Prediction</h3><p>Regression and classification models that predict academic performance and surface the factors that influence it.</p></div>
+    <div class="mini"><h3>Amazon Sales Analysis Dashboard</h3><p>Exploratory data analysis and KPI-driven dashboards for sales trend visualization.</p></div>
+    <div class="mini"><h3>Web Scraping Automation</h3><p>Automated e-commerce data extraction with Selenium and BeautifulSoup, exported as structured CSV datasets.</p></div>
+    <div class="mini"><h3>AI Virtual Mouse</h3><p>A computer vision gesture-control system for touchless human-computer interaction.</p></div>
+  </div>
+</div></section>
+
+<section id="credentials"><div class="wrap">
+  <h2>Certifications and achievements</h2>
+  <ul class="creds">
+    <li><b>AI/ML and Software Developer Internship Certificate</b><span>Delhi Secretariat</span></li>
+    <li><b>Machine Learning and Data Science Internship Certificate</b><span>NIT Delhi</span></li>
+    <li><b>Gen AI Exchange Hackathon 2025</b><span>Google Cloud and H2S</span></li>
+    <li><b>North Zone Anveshan 2025</b><span>AIU</span></li>
+    <li><b>International Conference on Fusion of Wisdom and Technology</b><span>Apeejay Stya University</span></li>
+    <li><b>Responsibility and Ethics in the Next Generation of AI</b><span>Apeejay Stya Education</span></li>
+    <li><b>Data Science with Python and AI</b><span>Pynet’s Lab</span></li>
+    <li><b>Cyber Security Basics</b><span>Pynet’s Lab</span></li>
+    <li><b>Generative AI Mastermind Workshop</b><span>Outskill</span></li>
+  </ul>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <h2>Education</h2>
+  <p class="edu"><b>B.Tech in Computer Science Engineering (Data Science &amp; AI)</b><br>Apeejay Stya University, India. Expected graduation: 2027.</p>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <h2>Let’s work together</h2>
+  <p>I’m looking for data science, machine learning and full-stack roles. The quickest way to reach me is email.</p>
+  <a href="mailto:ahirwarl413@gmail.com">ahirwarl413@gmail.com</a>
+  <a href="tel:+918307433073">+91-8307433073</a>
+  <a href="https://github.com/li1code" rel="noopener">github.com/li1code</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Laxmi Ahirwar. India.</div></footer>
+</body>
+</html>
